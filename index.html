@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Manha 💖</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ff758f;
+      margin: 0;
+    }
+
+    .birthday-card {
+      position: relative;
+      width: 400px;
+      height: 300px; /* ← Change this back from 400px */
+      background-color: #ff8fa3;
+      overflow: hidden;
+      border: 10px solid white;
+      border-radius: 10px;
+      box-shadow: 0 0 100px rgba(0, 0, 0, 0.4);
+    }
+    
+
+    .birthday-card:before {
+      content: "";
+      position: absolute;
+      background-color: #ffb3c1;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      top: 140px;
+      left: -25px;
+      box-shadow: 60px 20px #ffb3c1, 130px 10px #ffb3c1, 190px 20px #ffb3c1,
+        260px -5px #ffb3c1, 340px 20px #ffb3c1;
+    }
+
+    .birthday-card:after {
+      content: "";
+      position: absolute;
+      background-color: #ffccd5;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      top: 160px;
+      left: -40px;
+      box-shadow: 50px 20px #ffccd5, 120px 40px #ffccd5, 200px 15px #ffccd5,
+        260px 30px #ffccd5, 330px 30px #ffccd5, 380px 10px #ffccd5;
+    }
+
+    .clouds {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #fff0f3;
+      z-index: 5;
+      top: 210px;
+      left: -20px;
+      box-shadow: 55px 30px #fff0f3, 125px 10px #fff0f3, 175px 20px #fff0f3,
+        250px 10px #fff0f3, 320px 5px #fff0f3, 380px 10px #fff0f3;
+    }
+
+    .hearts {
+      position: absolute;
+      z-index: 2;
+    }
+
+    .heartOne,
+    .heartTwo,
+    .heartThree,
+    .heartFour,
+    .heartFive {
+      position: absolute;
+    }
+
+    .heartOne {
+      left: 100px;
+      top: 250px;
+      animation: up 4s linear forwards 1s;
+    }
+
+    .heartTwo {
+      left: 270px;
+      top: 230px;
+      animation: up 5s linear forwards 1.8s;
+    }
+
+    .heartThree {
+      left: 85px;
+      top: 415px;
+      animation: up 5s linear forwards 3s;
+    }
+
+    .heartFour {
+      left: 320px;
+      top: 380px;
+      animation: upTwo 9s linear infinite 3.5s;
+    }
+
+    .heartFive {
+      left: 150px;
+      top: 400px;
+      animation: upTwo 13s linear infinite 4.5s;
+    }
+
+    .right-side:before,
+    .right-side:after {
+      position: absolute;
+      content: "";
+      transform-origin: left;
+      animation: move 1s ease infinite;
+    }
+
+    .right-side:before {
+      border-radius: 50% 50% 50% 0;
+      width: 21px;
+      height: 20px;
+      background-color: #c9184a;
+      left: -0.26px;
+    }
+
+    .right-side:after {
+      height: 0;
+      width: 0;
+      border-bottom: 10px solid transparent;
+      border-left: 15px solid #c9184a;
+      top: 19px;
+      left: -0.26px;
+    }
+
+    .left-side:before,
+    .left-side:after {
+      position: absolute;
+      content: "";
+      transform-origin: right;
+      animation: move 1s ease infinite;
+    }
+
+    .left-side:before {
+      border-radius: 50% 50% 0 50%;
+      width: 20px;
+      height: 20px;
+      left: -20.7px;
+      background-color: #ff4d6d;
+    }
+
+    .left-side:after {
+      height: 0;
+      width: 0;
+      left: -15px;
+      border-bottom: 10px solid transparent;
+      border-right: 15px solid #ff4d6d;
+      top: 19px;
+    }
+
+    @keyframes move {
+      0%,
+      100% {
+        transform: rotateY(0);
+      }
+      50% {
+        transform: rotateY(-45deg);
+      }
+    }
+
+    @keyframes up {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-200px);
+      }
+    }
+
+    @keyframes upTwo {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-450px);
+      }
+    }
+
+    .text {
+      position: absolute;
+      color: #800f2f;
+      font-size: 30px;
+      font-family: 'Pacifico', cursive;
+      line-height: 1;
+      text-align: center;
+      width: 380px;
+      left: 10px;
+      z-index: 3;
+      top: 320px;
+      animation: up 1s ease forwards;
+      transition: 0.1s;
+    }
+
+    .text:hover span {
+      display: none;
+    }
+
+    .text:hover:before {
+      content: "I Love You Manhaa! love you the most you are soo special to me you are everything baby 18th birthday it is so proud of you i love you the most Manhaa";
+      font-size: 15px;
+    }
+
+    .countdown {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Pacifico', cursive;
+      font-size: 22px;
+      color: white;
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 5px 15px;
+      border-radius: 10px;
+    }
+
+    #confetti-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1000;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="happy-birthday">
+    <div class="birthday-card">
+      <div class="countdown" id="countdown">
+        Countdown to 18th 20th May❤️: <span id="timer"></span>
+      </div>
+      
+      <div class="clouds"></div>
+      <div class="hearts">
+        <div class="heartOne">
+          <div class="left-side"></div>
+          <div class="right-side"></div>
+        </div>
+        <div class="heartTwo">
+          <div class="left-side"></div>
+          <div class="right-side"></div>
+        </div>
+        <div class="heartThree">
+          <div class="left-side"></div>
+          <div class="right-side"></div>
+        </div>
+        <div class="heartFour">
+          <div class="left-side"></div>
+          <div class="right-side"></div>
+        </div>
+        <div class="heartFive">
+          <div class="left-side"></div>
+          <div class="right-side"></div>
+        </div>
+      </div>
+      <div class="text" id="birthdayMessage" style="display: none;">
+        <span>Happy Birthday</br></br>Manha 💖</span>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+  const countdownEl = document.getElementById("countdown");
+  const timerEl = document.getElementById("timer");
+
+  function updateCountdown() {
+    const now = new Date();
+    const midnight = new Date();
+    midnight.setHours(24, 0, 0, 0); // Set to 12:00 AM (next day)
+
+    const diff = midnight - now;
+
+    if (diff <= 0) {
+      // Show birthday message
+      document.getElementById("birthdayMessage").style.display = 'block';
+
+      // Show confetti
+      document.getElementById("confetti-canvas").style.display = 'block';
+      launchConfetti();
+
+      // Remove countdown completely after 2 seconds
+      countdownEl.innerText = "🎉 Happy Birthday! 🎉";
+      setTimeout(() => {
+        countdownEl.style.display = "none";
+      }, 2000);
+
+      clearInterval(countdownInterval);
+    } else {
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      timerEl.innerText =
+        `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+  }
+
+  function launchConfetti() {
+    const duration = 10 * 1000;
+    const end = Date.now() + duration;
+
+    (function frame() {
+      confetti({
+        particleCount: 5,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 }
+      });
+      confetti({
+        particleCount: 5,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 }
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    })();
+  }
+
+  const countdownInterval = setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
+
+</body>
+</html>
